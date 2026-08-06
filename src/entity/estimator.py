@@ -34,8 +34,19 @@ class MyModel:
         try:
             logging.info("Starting prediction process.")
 
+            print("=" * 50)
+            print("INPUT DATAFRAME")
+            print(dataframe)
+            print(dataframe.columns.tolist())
+            print(dataframe.dtypes)
+            print("=" * 50)
+
             # Step 1: Apply scaling transformations using the pre-trained preprocessing object
             transformed_feature = self.preprocessing_object.transform(dataframe)
+
+            print("Transformation Successful")
+            print(type(transformed_feature))
+            print(transformed_feature.shape)
 
             # Step 2: Perform prediction using the trained model
             logging.info("Using the trained model to get predictions")
